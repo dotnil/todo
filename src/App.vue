@@ -4,22 +4,22 @@
 
 <style>
 @font-face
-  font-family: "Overpass"
-  src: url('@/assets/overpass-regular.woff2') format("woff2")
+  font-family: "Montserrat"
+  src: url('assets/montserrat-regular.woff2') format("woff2")
 
 body
   margin: 0
-  font-family: "Overpass"
   background-image: linear-gradient(35deg, #fdfcfb 0%, #e2d1c3 100%)
 
 .app
+  font-family: "Montserrat"
   min-height: 100vh
   display: grid
   place-items: center
   color: #2c3e50
 
 a
-  color: #808080
+  color: #2c3e50
   text-decoration: none
 
 a:hover
