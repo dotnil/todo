@@ -6,6 +6,6 @@ li.todo-item
 
 <script setup>
 const props = defineProps({
-  todo: { type: Object, default: () => ({name: 'task', done: false}) },
+  todo: { type: Object, default: () => ({ name: 'task', done: false }) },
 })
 </script>
