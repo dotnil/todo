@@ -1,1 +1,1 @@
-# [boilerplate](https://github.com/rusty-cluster/styleguide/blob/main/js/vue) [![CI](https://github.com/rusty-cluster/vue-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/rusty-cluster/vue-boilerplate/actions/workflows/ci.yml)
+# [todo](https://github.com/rusty-cluster/styleguide/blob/main/js/vue) [![CI](https://github.com/dotnil/todo/actions/workflows/ci.yml/badge.svg)](https://github.com/dotnil/todo/actions/workflows/ci.yml)
