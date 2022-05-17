@@ -3,7 +3,7 @@
   h1.todo-list__header Todo
 
   ul.todo-list__container
-
+    TodoItem
   input.todo-list__new-item
   .todo-list__button
     a(class='todo-list__save' href='#') Save
