@@ -4,10 +4,9 @@
 
   ul.todo-list__container
   TodoItem(
-    v-for="(todo, index) in todos"
-    :key="index"
+    v-for="todo in todos"
+    :key="todo.id"
     :todo="todo"
-    @deleteTask="deleteTask"
     @toggleTask="toggleTask"
   )
   input.todo-list__new-item
@@ -19,7 +18,14 @@
 import { ref } from 'vue'
 import TodoItem from '@/components/TodoItem.vue'
 
-const todos = ref([])
+function toggleTask() {
+
+}
+
+const todos = ref([
+  { name: 'function', done: false, id: crypto.randomUUID() },
+  { name: 'take a rest', done: false, id: crypto.randomUUID() }
+])
 </script>
 
 <style>
