@@ -8,6 +8,7 @@
     :key="todo.id"
     :todo="todo"
     @toggleTask="toggleTask"
+    @deleteTask="deleteTask"
   )
   input.todo-list__new-item(
     v-model.trim="taskName"
@@ -32,8 +33,18 @@ const todos = ref([
   { name: 'take a rest', done: false, id: crypto.randomUUID() }
 ])
 
-function toggleTask() {
+function toggleTask(id) {
+  const oldTask = todos.value.find(todo => id === todo.id)
+  const updatedTask = { ...oldTask, done: !oldTask.done }
 
+  todos.value = todos.value.map(task => {
+    if(task.id === id) { return updatedTask }
+    return task
+  })
+}
+
+function deleteTask(id) {
+  todos.value = todos.value.filter(todo => id !== todo.id)
 }
 
 function addTask() {
