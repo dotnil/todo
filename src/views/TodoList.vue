@@ -63,8 +63,15 @@ function addTask() {
 </script>
 
 <style>
+.todo-list__header
+  font-weight: normal
+  margin-top: 0px
+
+li.todo-item::marker
+  color: #EBE0D6
+
 .todo-list__wrapper
-  background-color: rgba(255, 255, 255, 0.4)
+  background-color: #F5F5F5
   padding: 24px
 
 .todo-list__container
@@ -78,7 +85,6 @@ function addTask() {
 
 .todo-list__button
   text-decoration: none
-  display: inline-block
   position: relative
   background: none
   font-weight: 300

@@ -26,4 +26,7 @@ function emitDeleteTask() {
 <style>
 .todo-item__delete
   cursor: pointer
+
+.todo-item
+  padding: 4px 0
 </style>

@@ -4,19 +4,19 @@
 
 <style>
 @font-face
-  font-family: "Montserrat"
-  src: url('assets/montserrat-regular.woff2') format("woff2")
+  font-family: "AnonymousPro"
+  src: url('assets/anonymous-pro-regular.woff2') format("woff2")
 
 body
   margin: 0
-  background-image: linear-gradient(35deg, #fdfcfb 0%, #e2d1c3 100%)
+  background-image: linear-gradient(35deg, #F5F5F5 0%, #EBE0D6 100%)
 
 .app
-  font-family: "Montserrat"
+  font-family: "AnonymousPro"
   min-height: 100vh
   display: grid
   place-items: center
-  color: #2c3e50
+  color: #373F51
 
 a
   color: #2c3e50
