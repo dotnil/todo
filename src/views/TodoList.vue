@@ -9,23 +9,46 @@
     :todo="todo"
     @toggleTask="toggleTask"
   )
-  input.todo-list__new-item
+  input.todo-list__new-item(
+    v-model.trim="taskName"
+    @keyup.enter="addTask"
+  )
   .todo-list__button
-    a(class='todo-list__save' href='#') Save
+    a(
+      class='todo-list__save'
+      href='#'
+      @click="addTask"
+    ) Save
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import TodoItem from '@/components/TodoItem.vue'
 
-function toggleTask() {
-
-}
+const taskName = ref('')
 
 const todos = ref([
   { name: 'function', done: false, id: crypto.randomUUID() },
   { name: 'take a rest', done: false, id: crypto.randomUUID() }
 ])
+
+function toggleTask() {
+
+}
+
+function addTask() {
+  if (taskName.value.length === 0) { return }
+
+  const newTask = {
+    name: taskName.value,
+    done: false,
+    id: crypto.randomUUID()
+  }
+
+  todos.value.push(newTask)
+  taskName.value = ''
+}
+
 </script>
 
 <style>
