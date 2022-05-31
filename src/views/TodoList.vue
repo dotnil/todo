@@ -14,10 +14,7 @@
     v-model.trim="taskName"
     @keyup.enter="addTask"
   )
-  .todo-list__button
-    a(
-      class='todo-list__save'
-      href='#'
+  .todo-list__button(
       @click="addTask"
     ) Save
 </template>
@@ -67,21 +64,23 @@ function addTask() {
   background-color: rgba(255, 255, 255, 0.4)
   padding: 24px
 
+.todo-list__header
+  margin-top: 0
+
 .todo-list__container
   margin: 0
   padding: 0
-  list-style-position: inside
 
 .todo-list__new-item
-  margin: 24px 24px 24px 0px
+  margin: 20px 0px
   box-sizing: border-box
 
 .todo-list__button
   text-decoration: none
-  display: inline-block
-  position: relative
   background: none
-  font-weight: 300
+  cursor: pointer
+  padding: 10px 16px
+  border: 1px solid #2c3e50
 
 .todo-list__button:hover
   background: rgba(255, 255, 255, 0.6)

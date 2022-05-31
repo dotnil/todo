@@ -18,10 +18,4 @@ body
   place-items: center
   color: #2c3e50
 
-a
-  color: #2c3e50
-  text-decoration: none
-
-a:hover
-  color: #808080
 </style>
