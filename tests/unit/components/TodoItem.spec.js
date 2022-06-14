@@ -10,7 +10,7 @@ test('render default name', () => {
 
 test('render value', () => {
   const wrapper = mount(
-    TodoItem, { props: { todo: {name: 'buy milk', done: true} } }
+    TodoItem, { props: { todo: { name: 'buy milk', done: true } } }
   )
 
   expect(wrapper.text()).toContain('buy milk')
