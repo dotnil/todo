@@ -8,7 +8,7 @@
 
 * user click to input
 * user type the task name
-* user hit enter or ckick to the save button
+* user hit enter or click to the save button
 * the new task should appear in the list of tasks
 
 ## Complete a task

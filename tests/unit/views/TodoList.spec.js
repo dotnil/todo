@@ -16,3 +16,14 @@ test('Add a new task with the save button', async () => {
 
   expect(todoList.text()).toContain('feed the cat')
 })
+
+test('Add a new task by pressing the "enter" key', async () => {
+  const todoList = mount(TodoList)
+
+  const input = todoList.find('.todo-list__new-item')
+  await input.setValue('feed the cat')
+
+  await input.trigger('keyup.enter')
+
+  expect(todoList.text()).toContain('feed the cat')
+})
