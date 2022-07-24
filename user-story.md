@@ -1,8 +1,8 @@
 # Todo
 
 - [x] Add a new task
-- [ ] Complete a task
-- [ ] Delete a task
+- [x] Complete a task
+- [x] Delete a task
 
 ## Add a new task
 
@@ -11,12 +11,12 @@
 * user hit enter or click to the save button
 * the new task should appear in the list of tasks
 
-## Complete a task
+## Complete the task
 
 * left-click on the task text
 * the task text should be crossed by a line and become semi-transparent
 
-## Delete a task
+## Delete the task
 
 * left-click on the cross to the right of the task.
 * the task should disappear from the list

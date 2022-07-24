@@ -41,3 +41,16 @@ test('Complete the task', async () => {
   await task.trigger('click')
   expect(task.classes()).toContain('todo-item__name_completed')
 })
+
+test('Delete the task', async () => {
+  const todoList = mount(TodoList)
+  const input = todoList.find('.todo-list__new-item')
+  await input.setValue('feed the cat')
+  await input.trigger('keyup.enter')
+  const task = todoList
+    .findAll('.todo-item__name')
+    .filter(task => task.text() === 'feed the cat')[0]
+
+  const deleteButton = todoList.find('todo-item__delete')
+  await deleteButton.trigger('click')
+})
