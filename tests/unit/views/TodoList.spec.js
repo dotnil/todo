@@ -51,6 +51,6 @@ test('Delete the task', async () => {
     .findAll('.todo-item__name')
     .filter(task => task.text() === 'feed the cat')[0]
 
-  const deleteButton = todoList.find('todo-item__delete')
+  const deleteButton = todoList.find('.todo-item__delete')
   await deleteButton.trigger('click')
 })
