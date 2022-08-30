@@ -25,8 +25,8 @@ function emitDeleteTask() {
 
 <style>
 .todo-item
-  list-style-type: circle
-  list-style-position: inside
+  display: flex
+  justify-content: space-between
 
 .todo-item:hover
   list-style-type: disc
