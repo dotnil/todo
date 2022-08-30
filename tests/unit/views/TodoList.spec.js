@@ -48,9 +48,12 @@ test('Delete the task', async () => {
   await input.setValue('feed the cat')
   await input.trigger('keyup.enter')
   const task = todoList
-    .findAll('.todo-item__name')
-    .filter(task => task.text() === 'feed the cat')[0]
+    .findAll('.todo-item')
+    .filter(task => task.text().includes('feed the cat'))[0]
 
-  const deleteButton = todoList.find('.todo-item__delete')
+  expect(todoList.text()).toContain('feed the cat')
+ 
+  const deleteButton = task.find('.todo-item__delete')
   await deleteButton.trigger('click')
+  expect(todoList.text()).not.toContain('feed the cat')
 })
