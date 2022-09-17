@@ -63,9 +63,10 @@ function addTask() {
 .todo-list__wrapper
   display: flex
   flex-direction: column
-  background-color: rgba(255, 255, 255, 0.4)
-  padding: 24px
-  box-shadow: 0 5px 30px rgba(55, 63, 81, 0.1)
+  padding: 30px
+  height: 90vh
+  font-size: 30px
+  width: 70%
 
 .todo-list__header
   margin-top: 0
@@ -77,16 +78,19 @@ function addTask() {
 .todo-list__new-item
   margin: 20px 0px
   box-sizing: border-box
+  background: none
+  border: none
+  height: 40px
+  box-shadow: 0 5px 30px rgba(55, 63, 81, 0.1)
+  background-color: rgba(255, 255, 255, 0.3)
 
 .todo-list__button
   display: flex
-  justify-content: center
   text-decoration: none
   background: none
   cursor: pointer
   padding: 0 16px
-  border: 1px solid #909293a1
 
 .todo-list__button:hover
-  background: rgba(255, 255, 255, 0.6)
+  background: rgba(255, 255, 255, 0.2)
 </style>
