@@ -10,19 +10,15 @@
       @toggleTask='toggleTask'
       @deleteTask='deleteTask'
     )
-  .todo-list__input
-    input.todo-list__new-item(
-      v-model.trim='taskName'
-      @keyup.enter='addTask'
-      placeholder='task'
-      type='text'
-    )
-    input.todo-list__button(
-        @click='addTask'
-        type='submit'
-        value=''
-      ) +
+  input.todo-list__new-item(
+    v-model.trim='taskName'
+    @keyup.enter='addTask'
+  )
+  button.todo-list__button(
+      @click='addTask'
+    ) add
 </template>
+
 <script setup>
 import { ref } from 'vue'
 import TodoItem from '@/components/TodoItem.vue'
@@ -71,6 +67,7 @@ function addTask() {
   height: 90vh
   font-size: 30px
   width: 70%
+  max-width: 600px
 
 .todo-list__header
   margin-top: 0
@@ -79,12 +76,7 @@ function addTask() {
   margin: 0
   padding: 0
 
-.todo-list__button
-  position: relative
-  display: inline-block
-
 .todo-list__new-item
-  position: relative
   margin: 20px 0px
   box-sizing: border-box
   background: none
@@ -93,14 +85,15 @@ function addTask() {
   box-shadow: 0 5px 30px rgba(55, 63, 81, 0.1)
   background-color: rgba(255, 255, 255, 0.3)
 
-.todo-list__button
-  position:absolute
+button.todo-list__button
+  all: unset
   display: flex
-  text-decoration: none
+  box-shadow: 0 5px 30px rgba(55, 63, 81, 0.1)
+  justify-content: center
   background: none
   cursor: pointer
-  padding: 0 16px
+  height: 40px
 
-.todo-list__button:hover
+button.todo-list__button:hover
   background: rgba(255, 255, 255, 0.2)
 </style>

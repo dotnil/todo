@@ -4,7 +4,7 @@ li.todo-item
     :class="{ 'todo-item__name_completed': todo.done }"
     @click="emitToggleTask"
   ) {{ todo.name }}
-  .todo-item__delete(@click="emitDeleteTask") &times;
+  .todo-item__delete(@click="emitDeleteTask")
 </template>
 
 <script setup>
@@ -40,11 +40,13 @@ function emitDeleteTask() {
 
 .todo-item__delete
   display: initial
+  width: 30px
   cursor: pointer
   text-decoration: none
   color: #5a0700
-  margin-left: 10px
+  mask: url("@/assets/icons/close.svg") no-repeat center
+  background: black
 
 .todo-item__delete:hover
-  color: #8F0000
+  background: #8F0000
 </style>
