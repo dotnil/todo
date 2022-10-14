@@ -27,6 +27,10 @@ function emitDeleteTask() {
 .todo-item
   display: flex
   justify-content: space-between
+  height: 40px
+
+.todo-item:hover
+  font-size: larger
 
 .todo-item:hover
   list-style-type: disc
