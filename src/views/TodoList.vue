@@ -1,6 +1,6 @@
 <template lang='pug'>
 .todo-list__wrapper
-  h1.todo-list__header Todo
+  input.todo-list__title(v-model="title" @keyup.enter='title')
 
   ul.todo-list__container
     TodoItem(
@@ -24,6 +24,8 @@ import { ref } from 'vue'
 import TodoItem from '@/components/TodoItem.vue'
 
 const taskName = ref('')
+
+const title = ref('Todo')
 
 const todos = ref([
   { name: 'function', done: false, id: crypto.randomUUID() },
@@ -69,8 +71,19 @@ function addTask() {
   width: 70%
   max-width: 600px
 
-.todo-list__header
-  margin-top: 0
+.todo-list__title
+  border: none
+  background: none
+  font-family: inherit
+  color: inherit
+  display: block
+  font-size: 2em
+  margin-top: 0.67em
+  margin-bottom: 0.67em
+  font-weight: bold
+
+.todo-list__title:focus
+  outline: none
 
 .todo-list__container
   margin: 0
