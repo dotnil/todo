@@ -29,6 +29,9 @@ function emitDeleteTask() {
   justify-content: space-between
 
 .todo-item:hover
+  font-size: larger
+
+.todo-item:hover
   list-style-type: disc
 
 .todo-item__name

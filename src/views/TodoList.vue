@@ -10,13 +10,14 @@
       @toggleTask='toggleTask'
       @deleteTask='deleteTask'
     )
-  input.todo-list__new-item(
-    v-model.trim='taskName'
-    @keyup.enter='addTask'
-  )
-  button.todo-list__button(
-      @click='addTask'
-    ) add
+  .todo-list__call-to-action
+    input.todo-list__new-item(
+      v-model.trim='taskName'
+      @keyup.enter='addTask'
+    )
+    button.todo-list__button(
+        @click='addTask'
+      ) add
 </template>
 
 <script setup>
@@ -63,33 +64,46 @@ function addTask() {
 
 <style>
 .todo-list__wrapper
-  display: flex
-  flex-direction: column
+  box-sizing: border-box
+  margin: 0 16px
+  height: 100vh
+  display: grid
+  grid-template-areas:
+    'title-list '
+    'todos      '
+    'new-task   '
+  grid-template-columns: 1fr
+  grid-template-rows: 160px auto 120px
   padding: 30px
-  height: 90vh
   font-size: 30px
-  width: 70%
-  max-width: 600px
+  position: relative
 
 .todo-list__title
+  grid-area: title-list
   border: none
   background: none
   font-family: inherit
   color: inherit
   display: block
   font-size: 2em
-  margin-top: 0.67em
-  margin-bottom: 0.67em
   font-weight: bold
+  width: 100%
 
 .todo-list__title:focus
   outline: none
 
 .todo-list__container
+  grid-area: todos
   margin: 0
   padding: 0
+  overflow: hidden
+
+.todo-list__call-to-action
+  grid-area: new-task
+  align-self: end
 
 .todo-list__new-item
+  width: 100%
   margin: 20px 0px
   box-sizing: border-box
   background: none
@@ -106,6 +120,7 @@ button.todo-list__button
   background: none
   cursor: pointer
   height: 40px
+  min-width: 100%
 
 button.todo-list__button:hover
   background: rgba(255, 255, 255, 0.2)

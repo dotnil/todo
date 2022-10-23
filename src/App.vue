@@ -14,8 +14,7 @@ body
 .app
   font-family: "Montserrat"
   min-height: 100vh
-  display: grid
-  place-items: center
   color: #2c3e50
+  box-sizing: border-box
 
 </style>
