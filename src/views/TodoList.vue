@@ -17,7 +17,7 @@
     )
     button.todo-list__button(
         @click='addTask'
-      ) add
+      ) +
 </template>
 
 <script setup>
@@ -65,29 +65,27 @@ function addTask() {
 <style>
 .todo-list__wrapper
   box-sizing: border-box
-  margin: 0 16px
   height: 100vh
   display: grid
   grid-template-areas:
-    'title-list '
-    'todos      '
-    'new-task   '
-  grid-template-columns: 1fr
-  grid-template-rows: 160px auto 120px
-  padding: 30px
-  font-size: 30px
+    'title-list title-list'
+    'todos      todos     '
+    'new-task   submit    '
+  grid-template-columns: 2fr
+  grid-template-rows: 160px auto 80px
+  font-size: 40px
   position: relative
 
 .todo-list__title
   grid-area: title-list
+  font-family: "Vensfolk"
   border: none
   background: none
-  font-family: inherit
   color: inherit
   display: block
-  font-size: 2em
-  font-weight: bold
-  width: 100%
+  font-size: 3em
+  width: 100vw
+  padding: 0
 
 .todo-list__title:focus
   outline: none
@@ -95,33 +93,36 @@ function addTask() {
 .todo-list__container
   grid-area: todos
   margin: 0
-  padding: 0
+  padding: 30px
   overflow: hidden
+  font-family: "Montserrat"
 
 .todo-list__call-to-action
   grid-area: new-task
+  display: contents
   align-self: end
+  box-sizing: border-box
 
 .todo-list__new-item
+  grid-area: new-task
   width: 100%
-  margin: 20px 0px
-  box-sizing: border-box
   background: none
   border: none
-  height: 40px
   box-shadow: 0 5px 30px rgba(55, 63, 81, 0.1)
-  background-color: rgba(255, 255, 255, 0.3)
+  background-color: #FAF7F5
 
 button.todo-list__button
   all: unset
+  grid-area: submit
   display: flex
-  box-shadow: 0 5px 30px rgba(55, 63, 81, 0.1)
   justify-content: center
-  background: none
   cursor: pointer
-  height: 40px
-  min-width: 100%
+  background-color: #FAF7F5
+  width: 80px
+  font-size: 60px
+  align-items: center
 
 button.todo-list__button:hover
-  background: rgba(255, 255, 255, 0.2)
+background-color: #FAF7F5
 </style>
+
