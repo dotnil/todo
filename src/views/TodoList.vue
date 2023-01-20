@@ -2,7 +2,7 @@
 .todo-list__wrapper
   input.todo-list__title(v-model="title" @keyup.enter='title')
 
-  ul.todo-list__container
+  ul.todo-list__container.drop-zone
     TodoItem(
       v-for='todo in todos'
       :key='todo.id'
@@ -29,9 +29,14 @@ const taskName = ref('')
 const title = ref('Todo')
 
 const todos = ref([
-  { name: 'function', done: false, id: crypto.randomUUID() },
-  { name: 'take a rest', done: false, id: crypto.randomUUID() }
+  { name: 'function', done: false, id: crypto.randomUUID(), list: 1 },
+  { name: 'sleep', done: false, id: crypto.randomUUID(), list: 1 },
+  { name: 'take a rest', done: false, id: crypto.randomUUID(), list: 2  }
 ])
+
+const getList = (list) => {
+  return todos.value.filter((todo) => todo.list == list)
+}
 
 function toggleTask(id) {
   const oldTask = todos.value.find(todo => id === todo.id)
