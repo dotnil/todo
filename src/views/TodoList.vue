@@ -5,11 +5,32 @@
   ul.todo-list__container
     TodoItem(
       v-for='todo in todos'
-      :key='todo.id'
-      :todo='todo'
+      :key='todo'
       @toggleTask='toggleTask'
       @deleteTask='deleteTask'
     )
+
+  ul.todo-list__container
+    .drop-zone(
+      @drop='onDrop($event, 1)'
+      @dragover.prevent
+      @dragenter.prevent)
+    TodoItem(
+      v-for='todo in todos'
+      :key='todo.name'
+      @toggleTask='toggleTask'
+      @deleteTask='deleteTask'
+      draggable='true'
+      @dragstart='startDrag($event, item)'
+    )
+
+  div
+    .drop-zone(@drop='onDrop($event, 1)' @dragover.prevent @dragenter.prevent)
+      .drag-el(v-for='item in getList(1)' :key='item.id' draggable='true' @dragstart='startDrag($event, item)') {{ item.title }}
+
+    .drop-zone(@drop='onDrop($event, 2)' @dragover.prevent @dragenter.prevent)
+      .drag-el(v-for='item in getList(2)' :key='item.id' draggable='true' @dragstart='startDrag($event, item)') {{ item.title }}
+
   .todo-list__call-to-action
     input.todo-list__new-item(
       v-model.trim='taskName'
@@ -21,15 +42,54 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref , computed } from 'vue'
 import TodoItem from '@/components/TodoItem.vue'
+
+const items = ref([
+  {
+    id: 0,
+    title: 'Item A',
+    list: 1,
+  },
+  {
+    id: 1,
+    title: 'Item B',
+    list: 1,
+  },
+  {
+    id: 2,
+    title: 'Item C',
+    list: 2,
+  },
+])
+
+const getList = (list) => {
+  return items.value.filter((item) => item.list === list)
+}
+
+const index = todos.value.map(todo => todo.name).indexOf(name)
+
+const getListNew = (index) => {
+  return todos.value.filter((item) => item.name === index)
+}
+
+const startDrag = (event, item) => {
+  event.dataTransfer.dropEffect = 'move'
+  event.dataTransfer.effectAllowed = 'move'
+  event.dataTransfer.setData('itemName', item.name)
+}
+
+const onDrop = (event, list) => {
+  const itemName = event.dataTransfer.getData('itemName')
+  const item = items.value.find((item) => item.name == itemName)
+  item.list = list
+}
 
 const taskName = ref('')
 
-const title = ref('Todo')
-
 const todos = ref([
   { name: 'function', done: false, id: crypto.randomUUID() },
+  { name: 'sleep', done: false, id: crypto.randomUUID() },
   { name: 'take a rest', done: false, id: crypto.randomUUID() }
 ])
 
@@ -124,5 +184,20 @@ button.todo-list__button
 
 button.todo-list__button:hover
 background-color: #FAF7F5
+
+.a
+  grid-area: title-list
+
+.drop-zone
+  background-color: #eee
+  margin-bottom: 10px
+  padding: 10px
+
+
+.drag-el
+  background-color: #fff
+  margin-bottom: 10px
+  padding: 5px
+
 </style>
 
